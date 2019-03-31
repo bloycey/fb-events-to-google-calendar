@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "Facebook Events to Google Calendar",
+    "short_name": "FB to Google",
+    "description": "Add facebook events to your google calendar",
+    "version": "0.0.1",
+    "icons": {
+        "16": "images/icon16.png",
+        "24": "images/icon24.png",
+        "32": "images/icon32.png"
+    },
+    "browser_action": {
+        "default_icon": "images/icon32.png",
+        "default_title": "Facebook Events to Google Calendar"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "addEvent.js"
+    ],
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "https://www.facebook.com/*"
+            ],
+            "js": [
+                "addEvent.js"
+            ]
+        }
+    ]
+}
